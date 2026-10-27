@@ -34,3 +34,6 @@
 - El logo de Tigre Teve se utiliza como favicon, icono de acceso y marca en todas las páginas.
 - Las URLs `/noticia/<slug>/` se sirven con metadatos Open Graph y Twitter generados en servidor para que Facebook, WhatsApp y otras plataformas puedan leer el titular, el resumen y la foto de portada.
 - La función usa la clave pública de Supabase y solo consulta noticias publicadas; las políticas RLS deben permitir lectura pública de noticias publicadas.
+
+## Estructura de la página de inicio
+La portada muestra primero las últimas noticias de cualquier categoría, en bloques de tres con el botón “Ver más noticias”. Después aparece la señal en vivo junto a la programación y, más abajo, las secciones por ubicación/categoría: Aguachica, Gamarra, Región, Nacionales, Comunidad y Deportes. Para que las categorías locales se llenen automáticamente, usa esos nombres en el campo `category` al publicar desde el panel.
