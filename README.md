@@ -1,27 +1,25 @@
-# Tigre Teve — sitio web
+# Tigre Teve — sitio web actualizado
 
 ## Incluye
-- Página de inicio con diseño amarillo y negro.
-- Secciones independientes: Últimas noticias, Nacionales, Regionales, Comunidad, Deportes y Contacto.
-- URL individual por noticia: `/noticia/slug-de-la-noticia/`.
-- Panel `/admin/` para crear, editar, publicar y eliminar noticias.
-- Foto de portada más varias fotos adicionales por noticia.
-- Supabase para base de datos, inicio de sesión y almacenamiento de imágenes.
+- Diseño amarillo y negro con logo de Tigre Teve.
+- Portada con espacio para señal en vivo (requiere el enlace oficial del stream).
+- Secciones independientes: noticias, nacionales, regionales, comunidad, deportes, programación, servicios y contacto.
+- Noticias con URL individual por slug, portada y galería de varias fotos.
+- Panel `/admin/` para iniciar sesión, crear, editar, publicar y eliminar noticias.
+- Configuración de Supabase incluida con Project URL y publishable key pública proporcionadas para este proyecto.
 
-## Instalar en GitHub y Vercel
-1. Descomprime el ZIP y sube todos sus archivos y carpetas a la raíz del repositorio de GitHub.
-2. Importa el repositorio en Vercel y despliega como sitio estático.
-3. Crea un proyecto Supabase.
-4. Ejecuta `supabase-schema.sql` completo en Supabase > SQL Editor.
-5. En Supabase > Authentication > Users, crea el usuario administrador.
-6. En Supabase > Project Settings > API copia la Project URL y la clave pública publishable/anon.
-7. Completa esos dos valores en `supabase-config.js`, guarda y sube el cambio a GitHub.
-8. Abre `/admin/`, inicia sesión, completa los datos y selecciona una portada y varias fotos adicionales.
+## Antes de publicar
+1. Sube el contenido de este ZIP a la raíz del repositorio GitHub.
+2. En Vercel, despliega el repositorio como sitio estático.
+3. En Supabase Authentication > Users, crea el usuario administrador autorizado.
+4. Comprueba que la tabla `news` tenga las columnas usadas por el sitio y las políticas RLS apropiadas.
+5. En Storage, el bucket `noticias-fotos` debe ser público para servir URLs de imágenes; las políticas de INSERT/UPDATE/DELETE deben limitarse al bucket y a usuarios autenticados autorizados.
+6. Prueba `/admin/` y crea una noticia de prueba.
 
-**Seguridad:** no uses ni publiques la clave `service_role` o cualquier clave secreta. Solo debe ponerse en el navegador la clave pública publishable/anon; las políticas RLS de la base de datos controlan el acceso.
-
-## Importante
-- Sin configurar Supabase, el sitio muestra noticias de demostración y el panel no guarda contenido en línea.
-- Reemplaza los textos de contacto por los datos oficiales del medio.
-- El sitio crea páginas visibles por slug, pero las vistas previas enriquecidas de Facebook con título y foto distintos para cada noticia requieren prerenderizado o metadatos sociales dinámicos adicionales.
-- La política de administración está planteada para usuarios autenticados. Solo crea cuentas de administrador autorizadas en Supabase.
+## Seguridad y notas
+- La publishable key `sb_publishable_...` está diseñada para uso en el navegador. No incluyas nunca `service_role` ni claves secretas en archivos públicos.
+- La seguridad real depende de las políticas RLS de la tabla y de Storage. Las políticas que solo exigen `authenticated` permiten escribir a cualquier usuario autenticado; crea únicamente cuentas autorizadas y revisa las condiciones de cada política.
+- Las secciones Programación y Servicios son páginas base; la gestión dinámica de programas, clientes, publicidad y clima todavía no está conectada a tablas ni a proveedores externos.
+- El reproductor en vivo es un espacio reservado: necesita el enlace/embed oficial del canal.
+- Las tarjetas de demostración solo se muestran cuando no se pueden consultar las noticias. Si ves noticias de ejemplo, revisa la conexión y RLS.
+- Reemplaza los datos de contacto y las tarjetas de clientes de ejemplo por información oficial.
