@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/noticia/:slug",
+      "destination": "/noticia/index.html"
+    },
+    {
+      "source": "/noticia/:slug/",
+      "destination": "/noticia/index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    }
+  ]
+}
