@@ -23,3 +23,14 @@
 - El reproductor en vivo es un espacio reservado: necesita el enlace/embed oficial del canal.
 - Las tarjetas de demostración solo se muestran cuando no se pueden consultar las noticias. Si ves noticias de ejemplo, revisa la conexión y RLS.
 - Reemplaza los datos de contacto y las tarjetas de clientes de ejemplo por información oficial.
+
+## Actualización: compartir noticias y videos
+- Las noticias muestran botones para compartir usando el menú nativo del dispositivo, copiar el enlace cuando no esté disponible y compartir en Facebook o WhatsApp.
+- El panel permite imagen de portada por URL o archivo, varias fotos adicionales, enlace de video, resumen, contenido, slug y publicación inmediata.
+- Para habilitar el campo de video en una base ya existente, ejecuta en Supabase SQL Editor: `ALTER TABLE public.news ADD COLUMN IF NOT EXISTS video_url text;`
+
+
+### Icono y compartir noticias
+- El logo de Tigre Teve se utiliza como favicon, icono de acceso y marca en todas las páginas.
+- Las URLs `/noticia/<slug>/` se sirven con metadatos Open Graph y Twitter generados en servidor para que Facebook, WhatsApp y otras plataformas puedan leer el titular, el resumen y la foto de portada.
+- La función usa la clave pública de Supabase y solo consulta noticias publicadas; las políticas RLS deben permitir lectura pública de noticias publicadas.

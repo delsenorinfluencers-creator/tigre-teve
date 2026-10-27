@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/noticia/:slug",
-      "destination": "/noticia/index.html"
+      "source": "/noticia/:slug/",
+      "destination": "/api/noticia?slug=:slug"
     },
     {
-      "source": "/noticia/:slug/",
-      "destination": "/noticia/index.html"
+      "source": "/noticia/:slug",
+      "destination": "/api/noticia?slug=:slug"
     }
   ]
 }
