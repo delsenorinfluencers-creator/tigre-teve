@@ -1,4 +1,3 @@
-/* Completa con Project URL y clave publicable/anon de Supabase. NUNCA uses service_role aquí. */
-window.TIGRE_SUPABASE_URL = "";
-window.TIGRE_SUPABASE_ANON_KEY = "";
+window.TIGRE_SUPABASE_URL = "https://yaadlekmivggnavxexee.supabase.co";
+window.TIGRE_SUPABASE_ANON_KEY = "PEGA_AQUI_TU_CLAVE_PUBLICA_SB_PUBLISHABLE";
 window.TIGRE_SUPABASE_BUCKET = "noticias-fotos";
