@@ -37,3 +37,7 @@
 
 ## Estructura de la página de inicio
 La portada muestra primero las últimas noticias de cualquier categoría, en bloques de tres con el botón “Ver más noticias”. Después aparece la señal en vivo junto a la programación y, más abajo, las secciones por ubicación/categoría: Aguachica, Gamarra, Región, Nacionales, Comunidad y Deportes. Para que las categorías locales se llenen automáticamente, usa esos nombres en el campo `category` al publicar desde el panel.
+
+
+## Señal en vivo
+La portada incorpora el reproductor oficial de OpenCaster: `https://new.opencaster.com/player/embed?user=tigre_teve`. Si el proveedor impide la reproducción embebida en algún navegador, usa el enlace directo a la señal.
